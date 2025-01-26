@@ -15,6 +15,7 @@
             {{ form.as_p }}
             <button type="submit">Submit</button>
         </form>
+        <button class="styled-button" onclick="window.location.href='{% url 'home' %}'">Back to Home</button>
 
         {% if form.errors %}
             <div class="errors">
