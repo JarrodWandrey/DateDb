@@ -1,0 +1,119 @@
+/* Used for colors: https://colorffy.com/dark-theme-generator?colors=440d0d-121212 */
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #282828;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Section */
+#header-title {
+    background-color: #592724;
+    color: gray;
+    text-align: center;
+    padding: 20px 0;
+}
+
+#header-title h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+/* Records Overview Section */
+#records-overview {
+    margin-top: 30px;
+}
+
+#records-overview h2 {
+    color: gray;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    color: gray;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #575757;
+}
+
+th {
+    background-color: #592724;
+    text-align: center;
+}
+
+td a {
+    margin-right: 10px;
+    color: gray;
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+    color: lightgray;
+}
+
+/* Actions Section */
+#actions {
+    margin-top: 40px;
+    background-color: #592724;
+    color: gray;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#actions h2 {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+#actions ul {
+    list-style-type: none;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+#actions ul li a {
+    color: gray;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+#actions ul li a:hover {
+    text-decoration: underline;
+    color: lightgray;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    #header-title h1 {
+        font-size: 2em;
+    }
+
+    table th, table td {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    #actions ul li a {
+        font-size: 1em;
+    }
+}

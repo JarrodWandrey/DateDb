@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add Date</title>
+        <!-- Correctly link to the static file -->
+        <link rel="stylesheet" href="{% static 'create.css' %}">
+    </head>
+    <body>
+        <h1>Add New Date</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if form.errors %}
+            <div class="errors">
+                <p>There were errors in your submission:</p>
+                <ul>
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </body>
+</html>

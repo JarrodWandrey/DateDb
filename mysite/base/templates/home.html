@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Date Database Web App</title>
+    <link rel="stylesheet" href="static/home.css">
+</head>
+<body>
+    <main>
+        <section id="header-title">
+            <h1>Welcome to the DateDB</h1>
+        </section>
+
+        <section id="records-overview">
+            <h2>Latest Records</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Rating</th>
+                        <th>Price</th>
+                        <th>Date Added</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                {% if latest_dates %}
+                    <tbody>
+                        {% for date in latest_dates.all|slice:":3" %}
+                            <tr>
+                                <td>{{ date.date|date:"m/d/Y" }}</td>
+                                <td>{{ date.name }}</td>
+                                <td>{{ date.location }}</td>
+                                <td>
+                                    <span style="color:
+                                    {% if date.rating >= 8 %}
+                                        green;
+                                    {% elif date.rating >= 5 %}
+                                        orange;
+                                    {% else %}
+                                        red;
+                                    {% endif %}
+                                    ">
+                                    {{ date.rating }}/10
+                                </span>
+                                </td>
+                                {% if date.price >= 100 %}
+                                    <td>$$$</td>
+                                {% elif date.price >= 50 and date.price < 99 %}
+                                    <td>$$</td>
+                                {% else %}
+                                    <td>$</td>
+                                {% endif %}
+                                <td>{{ date.date_added|date:"m/d/Y" }}</td>
+                                <td>
+                                    <a href="#">Edit</a>
+                                    <a href="#">Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                {% else %}
+                    <tbody>
+                        <tr>
+                            <td colspan="6">No records found.</td>
+                        </tr>
+                    </tbody>
+                {% endif %}
+            </table>
+        </section>
+
+        <footer id="actions">
+            <h2>Quick Actions</h2>
+            <ul>
+                <li><a href="/create">Add New Record</a></li>
+                <li><a href="/list">Search Records</a></li>
+            </ul>
+        </footer>
+    </main>
+</body>
+</html>
